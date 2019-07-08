@@ -16,7 +16,7 @@ impl Solution {
                 let mut cell = vec![];
 
                 for sub_span in 0..span {
-                    println!("{} {} {}", span, col, sub_span);
+                    // println!("{} {} {}", span, col, sub_span);
                     let op = operators[col + sub_span];
                     Solution::resolve(
                         op,

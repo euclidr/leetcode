@@ -11,3 +11,7 @@ edition = "2018"
 [[examples]]
 name = "p241"
 path = "examples/p241.rs"
+
+[[examples]]
+name = "p282"
+path = "examples/p282.rs"
