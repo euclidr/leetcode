@@ -34,7 +34,7 @@ impl Solution {
 
 fn main() {
     Solution::largest_overlap(vec![vec![]; 0], vec![vec![]; 0]);
-    for i in 0..10-7 {
+    for i in 0..10 - 7 {
         println!("{}", i);
     }
 }
