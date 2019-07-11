@@ -103,3 +103,7 @@ path = "examples/p714.rs"
 [[examples]]
 name = "p1079"
 path = "examples/p1079.rs"
+
+[[examples]]
+name = "p881"
+path = "examples/p881.rs"
