@@ -8,11 +8,11 @@ fn main() {
 
 impl Solution {
     pub fn racecar(target: i32) -> i32 {
-        let mut dp = vec![0; (target as usize)+1];
+        let mut dp = vec![0; (target as usize) + 1];
         let target = target as usize;
-        for n in 1..(target+1) {
+        for n in 1..(target + 1) {
             let mut right_steps = 1;
-            let mut right_value = (1 << right_steps ) - 1;
+            let mut right_value = (1 << right_steps) - 1;
             while right_value < n {
                 right_steps += 1;
                 right_value = (1 << right_steps) - 1;
@@ -20,7 +20,7 @@ impl Solution {
 
             if right_value == n {
                 dp[n] = right_steps;
-                continue
+                continue;
             }
 
             dp[n] = right_steps + 1 + dp[right_value - n];
@@ -37,7 +37,7 @@ impl Solution {
                 }
             }
         }
-        println!("{:?}", &dp[0..3]);
+        // println!("{:?}", &dp[0..3]);
 
         dp[target] as i32
     }

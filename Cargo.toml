@@ -7,6 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rand = "0.7"
 
 [[examples]]
 name = "p241"
@@ -139,3 +140,11 @@ path = "examples/p678.rs"
 [[examples]]
 name = "p818"
 path = "examples/p818.rs"
+
+[[examples]]
+name = "p567"
+path = "examples/p567.rs"
+
+[[examples]]
+name = "p710"
+path = "examples/p710.rs"
