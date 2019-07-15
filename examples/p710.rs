@@ -40,6 +40,7 @@ impl Solution {
             set,
         }
     }
+
     fn pick(&mut self) -> i32 {
         let mut rng = rand::thread_rng();
         if self.use_set {
