@@ -152,3 +152,15 @@ path = "examples/p710.rs"
 [[examples]]
 name = "p437"
 path = "examples/p437.rs"
+
+[[examples]]
+name = "p822"
+path = "examples/p822.rs"
+
+[[examples]]
+name = "p456"
+path = "examples/p456.rs"
+
+[[examples]]
+name = "p218"
+path = "examples/p218.rs"
