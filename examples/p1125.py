@@ -1,3 +1,5 @@
+# it's not a good solution
+# a better solution may base on skills, not base on whether a person is chosen
 class Solution(object):
     def smallestSufficientTeam(self, req_skills, people):
         """
@@ -5,12 +7,13 @@ class Solution(object):
         :type people: List[List[str]]
         :rtype: List[int]
         """
-        people_encoded = []
+
         target = 0
         for _ in req_skills:
             target <<= 1
             target += 1
 
+        people_encoded = []
         for i, person in enumerate(people):
             encoded = 0
             for skill in req_skills:
@@ -18,10 +21,10 @@ class Solution(object):
                 if skill in person:
                     encoded += 1
             people_encoded.append((i, encoded, person))
-            # print("encoded ", i, " ", encoded)
 
         people_encoded.sort(key=lambda x: len(x[2]))
-        # print("target", target)
+
+        # make people less
         people_encoded2 = []
         for i in range(0, len(people_encoded)):
             contained = False
@@ -34,10 +37,10 @@ class Solution(object):
         people_encoded = people_encoded2
         people_encoded.reverse()
 
+        # people count won't exceed len(req_skills)
         return self.search(people_encoded, 0, 0, len(req_skills), target)
 
     def search(self, people, cur_idx, mask, max_depth, target):
-        # print("idx %s, mask %s, max_depth %s" % (cur_idx, mask, max_depth))
         if mask == target:
             return []
         if cur_idx == len(people):
@@ -45,11 +48,11 @@ class Solution(object):
         if not max_depth:
             return None
 
-        # print("value: ",  people[cur_idx])
-
+        # if the person is not required, just continue
         if (people[cur_idx][1] | mask) == mask:
             return self.search(people, cur_idx+1, mask, max_depth, target)
 
+        # choose the person, and find the rest skill team
         new_mask = people[cur_idx][1] | mask
         new_max_depth = max_depth - 1
         tmp_max_depth = self.onebits(target) - self.onebits(new_mask)
@@ -59,8 +62,6 @@ class Solution(object):
         result1 = self.search(people, cur_idx+1, new_mask,
                               new_max_depth, target)
 
-        # print("result1 ", result1)
-
         if result1 is not None and len(result1) == 0:
             return [people[cur_idx][0]]
 
@@ -69,8 +70,8 @@ class Solution(object):
         else:
             new_max_depth = len(result1) + 1
 
+        # ignore the person, continue to find the team with tightened depth
         result2 = self.search(people, cur_idx+1, mask, new_max_depth, target)
-        # print("result2, result1", result2, result1)
         if result2 is None and result1 is None:
             return None
         if result2 is None:
