@@ -55,7 +55,6 @@ class Solution(object):
         return result
 
 
-
 if __name__ == '__main__':
     s = Solution()
     print(s.maxProduct(['a', 'bb', 'ccc', 'abbb']))
