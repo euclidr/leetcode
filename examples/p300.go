@@ -21,3 +21,5 @@ func lengthOfLIS(nums []int) int {
 	}
 	return result
 }
+
+// there is NlogN method
